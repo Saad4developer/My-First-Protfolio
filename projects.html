@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Work | SaadDev Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <nav class="navbar">
+        <div class="logo">Saad<span>Dev.</span></div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="projects.html" class="active">My Work</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+        <div class="hamburger">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <section class="projects-section">
+        <div class="container text-center hidden-element" style="padding-top: 150px; padding-bottom: 60px;">
+            <h2 class="section-title">Featured <span class="highlight">Projects</span></h2>
+            <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto; font-size: 18px;">A showcase of my recent high-performance web applications, blending modern aesthetics with powerful logic.</p>
+        </div>
+
+        <div class="project-grid">
+            <div class="project-card hidden-element">
+                <div class="card-image-wrapper">
+                    <div class="card-image" style="background: url('https://images.unsplash.com/photo-1498050108023-c5249f4df085') center/cover;"></div>
+                </div>
+                <div class="card-content">
+                    <span class="tech-stack">React • Tailwind CSS</span>
+                    <h3>Premium Landing Page</h3>
+                    <p>High-converting, responsive landing page featuring modern glassmorphism UI and fluid scroll animations.</p>
+                    <div class="card-actions">
+                        <a href="#" class="btn primary-btn btn-sm">Live Demo</a>
+                        <a href="#" class="btn secondary-btn btn-sm"><i class="fab fa-github"></i> Source</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card hidden-element">
+                <div class="card-image-wrapper">
+                    <div class="card-image" style="background: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71') center/cover;"></div>
+                </div>
+                <div class="card-content">
+                    <span class="tech-stack">Node.js • Express • MongoDB</span>
+                    <h3>E-Commerce Dashboard</h3>
+                    <p>A full-stack product showcase and inventory management system focusing on user experience and data security.</p>
+                    <div class="card-actions">
+                        <a href="#" class="btn primary-btn btn-sm">Live Demo</a>
+                        <a href="#" class="btn secondary-btn btn-sm"><i class="fab fa-github"></i> Source</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card hidden-element">
+                <div class="card-image-wrapper">
+                    <div class="card-image" style="background: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f') center/cover;"></div>
+                </div>
+                <div class="card-content">
+                    <span class="tech-stack">HTML • CSS • JS (Vanilla)</span>
+                    <h3>Corporate Portfolio</h3>
+                    <p>Minimalist and blazing-fast portfolio template for agencies, optimized for maximum SEO performance.</p>
+                    <div class="card-actions">
+                        <a href="#" class="btn primary-btn btn-sm">Live Demo</a>
+                        <a href="#" class="btn secondary-btn btn-sm"><i class="fab fa-github"></i> Source</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer hidden-element" style="margin-top: 80px;">
+        <p>&copy; 2026 SaadDev. Crafted with passion.</p>
+        <div class="footer-socials">
+            <a href="https://github.com/Saad4developer" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+        </div>
+    </footer>
+
+    <script>
+        // Custom Cursor Logic
+        const cursor = document.querySelector('.cursor');
+        const follower = document.querySelector('.cursor-follower');
+        
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+            
+            setTimeout(() => {
+                follower.style.left = e.clientX + 'px';
+                follower.style.top = e.clientY + 'px';
+            }, 80);
+        });
+
+        // Intersection Observer for Animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show-element');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.hidden-element').forEach((el) => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>

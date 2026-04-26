@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saad | Premium Web Architect</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <nav class="navbar hidden-element">
+        <div class="logo">Saad<span>Dev.</span></div>
+        <ul class="nav-links">
+            <li><a href="#home" class="active">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="hamburger">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <header id="home" class="hero hidden-element">
+        <div class="hero-content">
+            <span class="badge">✨ Available for Freelance Projects</span>
+            <h1>Crafting Digital <br><span class="highlight">Masterpieces</span></h1>
+            <p>A passionate Web Developer specializing in high-performance websites that blend creative design with corporate precision.</p>
+            <div class="buttons">
+                <a href="projects.html" class="btn primary-btn">Explore My Work</a>
+                <a href="#contact" class="btn secondary-btn">Start a Project</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <div class="floating-shape shape-1"></div>
+            <div class="glass-box main-skill-card">
+                <div class="stat-row">
+                    <div class="stat"><h3>100%</h3><p>Commitment</p></div>
+                    <div class="stat"><h3>1+</h3><p>Years Exp.</p></div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="about" class="about-section hidden-element">
+        <div class="container">
+            <h2 class="section-title">Beyond the <span class="highlight">Code</span></h2>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p>I am Mahmodul Haque Saad, a dedicated developer from Bangladesh. I focus on architecting seamless digital experiences. My mission is to help brands stand out through clean UI and robust logical structures.</p>
+                    <div class="skill-bars">
+                        <div class="bar"><span>Front-end (HTML/CSS/JS)</span><div class="progress" data-width="90%"></div></div>
+                        <div class="bar"><span>Modern Frameworks (React)</span><div class="progress" data-width="75%"></div></div>
+                        <div class="bar"><span>UI/UX & Responsive Design</span><div class="progress" data-width="85%"></div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="services-section hidden-element">
+        <h2 class="section-title">Premium <span class="highlight">Services</span></h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <i class="fas fa-laptop-code"></i>
+                <h3>Web Development</h3>
+                <p>Building lightning-fast, scalable web applications with modern tech stacks.</p>
+            </div>
+            <div class="service-card active">
+                <i class="fas fa-mobile-alt"></i>
+                <h3>Responsive Design</h3>
+                <p>Ensuring pixel-perfect layouts across all devices, from mobile to desktop.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-paint-brush"></i>
+                <h3>UI/UX Solutions</h3>
+                <p>Creating intuitive and engaging interfaces that users love to interact with.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats-section hidden-element">
+        <div class="stat-item"><h2>10+</h2><p>Projects Finished</p></div>
+        <div class="stat-item"><h2>6+</h2><p>Happy Clients</p></div>
+        <div class="stat-item"><h2>24/7</h2><p>Support</p></div>
+    </section>
+
+    <section id="contact" class="contact-section hidden-element">
+        <div class="contact-card">
+            <h2 class="section-title">Ready to <span class="highlight">Elevate?</span></h2>
+            <p>Let's discuss your next big idea.</p>
+            <form class="contact-form">
+                <div class="form-row">
+                    <input type="text" placeholder="Full Name" required>
+                    <input type="email" placeholder="Email Address" required>
+                </div>
+                <textarea placeholder="Project Details" rows="5" required></textarea>
+                <button type="submit" class="btn primary-btn">Launch Inquiry <i class="fas fa-paper-plane"></i></button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="footer hidden-element">
+        <p>&copy; 2026 SaadDev. Crafted with passion.</p>
+        <div class="footer-socials">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="https://github.com/Saad4developer" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+        </div>
+    </footer>
+
+    <script>
+        // Custom Cursor Logic
+        const cursor = document.querySelector('.cursor');
+        const follower = document.querySelector('.cursor-follower');
+        
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+            
+            setTimeout(() => {
+                follower.style.left = e.clientX + 'px';
+                follower.style.top = e.clientY + 'px';
+            }, 100);
+        });
+
+        // Intersection Observer for Scroll Animations
+        const observerOptions = {
+            threshold: 0.2,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show-element');
+                    
+                    // Animate skill bars if they are in view
+                    if(entry.target.classList.contains('about-section')) {
+                        const progressBars = document.querySelectorAll('.progress');
+                        progressBars.forEach(bar => {
+                            bar.style.width = bar.getAttribute('data-width');
+                        });
+                    }
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.hidden-element').forEach((el) => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
